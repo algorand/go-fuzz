@@ -6,7 +6,7 @@ package main
 import (
 	"testing"
 
-	. "github.com/dvyukov/go-fuzz/go-fuzz-defs"
+	. "github.com/algorand/go-fuzz/go-fuzz-defs"
 )
 
 func BenchmarkCompareCoverBody(b *testing.B) {
