@@ -63,7 +63,7 @@ func basePackagesConfig() *packages.Config {
 
 	goFuzzModule, isGoFuzzModuleSet := os.LookupEnv("GOFUZZ111MODULE")
 	if isGoFuzzModuleSet {
-		cfg.Env = append(os.Environ(), "GO111MODULE=" + goFuzzModule)
+		cfg.Env = append(os.Environ(), "GO111MODULE="+goFuzzModule)
 	} else {
 		cfg.Env = append(os.Environ(), "GO111MODULE=off")
 	}
@@ -457,7 +457,7 @@ func (c *Context) populateWorkdir() {
 
 	// HACKHACKHACK copy over go-algorand manually
 	c.copyDir(filepath.Join(c.GOPATH, "src", "github.com", "algorand", "go-algorand"),
-	filepath.Join(c.workdir, "gopath", "src", "github.com", "algorand", "go-algorand"))
+		filepath.Join(c.workdir, "gopath", "src", "github.com", "algorand", "go-algorand"))
 
 	// Clone our package, go-fuzz-deps, and all dependencies.
 	// TODO: we might not need to do this for all packages.
