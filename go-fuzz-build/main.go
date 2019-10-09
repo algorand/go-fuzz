@@ -455,6 +455,10 @@ func (c *Context) populateWorkdir() {
 		c.copyDir(filepath.Join(c.GOROOT, "pkg", runtime.GOOS+"_"+runtime.GOARCH), filepath.Join(c.workdir, "goroot", "pkg", runtime.GOOS+"_"+runtime.GOARCH))
 	}
 
+	// HACKHACKHACK copy over go-algorand manually
+	c.copyDir(filepath.Join(c.GOPATH, "src", "github.com", "algorand", "go-algorand"),
+	filepath.Join(c.workdir, "gopath", "src", "github.com", "algorand", "go-algorand"))
+
 	// Clone our package, go-fuzz-deps, and all dependencies.
 	// TODO: we might not need to do this for all packages.
 	// We know that we'll be writing out instrumented Go code later;
